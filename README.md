@@ -70,11 +70,11 @@ It should look similar to this:<br>
 <ul><li>Modify the following vars to your needs:<br>
 <br>
 <code>CONFDIR=/jffs/etc/privoxy
-TMPDIR=/jffs/tmp/privoxy-blocklist</code>
+TMPDIR=/jffs/tmp/privoxy-blocklist</code><br>
 <br>
 <li><b>And specify the AdblockPlus Lists you want to grab and convert in the loop:</b>
 <br>
-<code>for url in "https://easylist-downloads.adblockplus.org/easylist.txt" "https://easylist-downloads.adblockplus.org/easylistgermany.txt" "https://easylist-downloads.adblockplus.org/malwaredomains_full.txt"; do</code>
+<code>for url in "https://easylist-downloads.adblockplus.org/easylist.txt" "https://easylist-downloads.adblockplus.org/easylistgermany.txt" "https://easylist-downloads.adblockplus.org/malwaredomains_full.txt"; do</code><br>
 <br>
 <b>Some AdblockPlus Blocklists can be found on the official Site:</b><br>
 <br>
