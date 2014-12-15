@@ -39,7 +39,7 @@ Modified to be used without Optware or any additional Binaries.
 </ul>
 
 <h3>Install Instructions:</h3>
-<ol></li>Create Folders /jffs/etc/privoxy and /jffs/tmp (if not already existing)</li>
+<ol><li>Create Folders /jffs/etc/privoxy and /jffs/tmp (if not already existing)</li>
 
 <li>Create / Copy below Script-Contents into /jffs/privoxy-blocklist.sh</li>
 
