@@ -54,7 +54,7 @@ Modified to be used without Optware or any additional Binaries.
 <li>Add all Filter- and Actionlists to your Custom Configuration like this<br>
 (for each AdblockPlus-List one Filter- and one Actionlist will be generated):<br>
 <br>
-<img src="http://abload.de/img/filterlistsexeqj.jpg">
+<img src="http://abload.de/img/filterlistsexeqj.jpg" width="50%">
 </li>
 <li>Click Save - then Apply Settings</li>
 
@@ -62,7 +62,7 @@ Modified to be used without Optware or any additional Binaries.
 <br>
 It should look similar to this:<br>
 <br>
-<img src="http://abload.de/img/privoxy-config-succesf6udi.jpg">
+<img src="http://abload.de/img/privoxy-config-succesf6udi.jpg" width="50%">
 </li>
 </ol>
 
