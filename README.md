@@ -79,7 +79,8 @@ It should look similar to this:<br>
 <br>
 <b>Some AdblockPlus Blocklists can be found on the official Site:</b><br>
 <br>
-https://adblockplus.org/en/subscriptions (for the URL copy the Link of the Subscription-Button for each List you want to use)
+https://adblockplus.org/en/subscriptions<br>
+(for the URL see the Link of the Subscription-Button for each List you want to use)
 </li>
 </ul>
 
