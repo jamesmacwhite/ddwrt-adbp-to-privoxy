@@ -2,7 +2,7 @@
 #
 ######################################################################
 #
-#  privoxy-blocklist.sh @ VERSION 151012-1 
+#  privoxy-blocklist.sh @ VERSION 141512-1 
 #
 #  Modified for DD-WRT by: 
 #  Simon Sanladerer <simon-at-sanladerer.com>
@@ -25,7 +25,7 @@
 ######################################################################
 #
 #  CHANGELOG:
-#  + 151012-1 
+#  + 141512-1 
 #    - Moved to Github
 #    - Fixed some Syntax Errors (possibly - tested with shellcheck.net)
 #      Please update to the newest Version
