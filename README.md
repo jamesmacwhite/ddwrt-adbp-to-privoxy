@@ -35,7 +35,7 @@ Modified to be used without Optware or any additional Binaries.
 <h3>Requirements:</h3>
 <ul><li>DD-WRT Build BS 25408+, Kong 23900+ or similiar</li>
 <li>/usr/sbin/privoxy</li>
-<li>/jffs/</li>
+<li>/jffs/ (either @ NVRAM or on an External USB-Storage)</li>
 </ul>
 
 <h3>Install Instructions:</h3>
