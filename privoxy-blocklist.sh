@@ -54,8 +54,15 @@ CONFDIR=/jffs/etc/privoxy
 # directory for temporary files
 TMPDIR=/jffs/tmp/privoxy-blocklist
 TMPNAME=$(basename "${0}")
-
 mkdir ${TMPDIR}
+
+# URL of each AdBlock list to download and convert
+# Each list must appear on a new line with a backslash denoting a new line
+# You can find AdBlock lists at: https://adblockplus.org/en/subscriptions
+ADBLOCKLISTS=" \
+https://easylist-downloads.adblockplus.org/easylist.txt \
+https://easylist-downloads.adblockplus.org/antiadblockfilters.txt \
+https://easylist-downloads.adblockplus.org/malwaredomains_full.txt"
 
 ######################################################################
 #
@@ -100,7 +107,8 @@ main()
 	cpoptions=""
 	[ ${DBG} -gt 0 ] && cpoptions="-v"
 
-	for url in "https://easylist-downloads.adblockplus.org/easylist.txt" "https://easylist-downloads.adblockplus.org/easylistgermany.txt" "https://easylist-downloads.adblockplus.org/malwaredomains_full.txt"; do
+	for url in $ADBLOCKLISTS
+	do
 		debug "Processing ${url} ...\n" 0
 		file="${TMPDIR}/$(basename ${url})"
 		filename=$(basename "${url}")
