@@ -287,7 +287,7 @@ do
 	esac
 done
 
-debug "URL-List: ${URLS}\nPrivoxy-Configdir: ${CONFDIR}\nTemporary directory: ${TMPDIR}" 2
+debug "URL-List: ${ADBLOCKLISTS}\nPrivoxy-Configdir: ${CONFDIR}\nTemporary directory: ${TMPDIR}" 2
 main
 
 # restore default exit command
