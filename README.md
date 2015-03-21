@@ -1,4 +1,4 @@
-DD-WRT AdBlock Plus to Privoxy
+DD-WRT Adblock Plus to Privoxy
 ==============================
 
 Download and convert Adblock Plus Filters to Privoxy Action- and Filterfiles
@@ -35,13 +35,20 @@ Modified to be used without Optware or any additional binaries.
 
 ### Install Instructions:
 
-Grab the latest version of `privoxy-blocklist.sh`, the easiest way to do this via telnet/SSH using curl
+1. Start by creating the initial folders to hold the Privoxy files. You'll need to access your router via telnet/SSH. The quickest way to get setup is copy the default Privoxy configuration files provided in the DD-WRT firmware from `/etc/privoxy`
+
+```
+mkdir -p /jffs/etc/privoxy
+mkdir -p /jffs/tmp
+cp -r /etc/privoxy/* /jffs/etc/privoxy
+cd /jffs
+```
+
+Grab the latest version of `privoxy-blocklist.sh`, the easiest way to do this is using curl
 
 `curl -k -O https://raw.githubusercontent.com/jamesmacwhite/ddwrt-adbp-to-privoxy/master/privoxy-blocklist.sh`
 
-** Due to the wget package not being compiled with SSL support in DD-WRT, you will be unable to get files under a domain using https
-
-1. Create Folders /jffs/etc/privoxy and /jffs/tmp (if not already existing)
+** Due to the wget package not being compiled with SSL support in DD-WRT, you will be unable to wget files under a domain using https
 
 2. `chmod +x privoxy-blocklist.sh`
 
@@ -49,7 +56,7 @@ Grab the latest version of `privoxy-blocklist.sh`, the easiest way to do this vi
 
 4. Enable Privoxy in the DD-WRT web interface under `Services -> Adblocking` by setting the radio button to Enable. In addition you will need to enable `Custom Configuration`. For convenience you may also want to use `Transparent Mode`. This mode will create a iptables rule that redirects all traffic on port 80 through Privoxy. Doing this means you don't need to configure each client to point to the proxy via [x.x.x.x]:8118, all traffic will be redirected automatically.
 
-5. Change `CONFDIR` to the place where you store your filterlists - Default: `/jffs/etc/privoxy`
+5. Change `CONFDIR` to the place where you store your filterlists if you didn't use the default path - Default: `/jffs/etc/privoxy`
 
 6. Add all Filter and Actionlists to your Custom Configuration like this
 (for each AdblockPlus-List one Filter- and one Actionlist will be generated):
