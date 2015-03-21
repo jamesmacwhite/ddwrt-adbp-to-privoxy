@@ -63,9 +63,9 @@ Grab the latest version of `privoxy-blocklist.sh`, the easiest way to do this is
 
 <img src="http://abload.de/img/filterlistsexeqj.jpg" alt="DD-WRT Privoxy web interface configuration page" width="50%" />
 
-6. Click `Save` followed by `Apply Settings`
+Click `Save` followed by `Apply Settings`
 
-Wait a bit (approx. 5 minutes) - now Privoxy should be restarted including your AdblockPlus Filters and Actions. You can verify this under [http://config.privoxy.org/show-status] (you can only access this page if you're using Privoxy).
+Wait a bit (approx. 5 minutes) - now Privoxy should be restarted including your Adblock Plus Filters and Actions. You can verify this under [http://config.privoxy.org/show-status] (you can only access this page if you're using Privoxy).
 
 It should look similar to this:
 
