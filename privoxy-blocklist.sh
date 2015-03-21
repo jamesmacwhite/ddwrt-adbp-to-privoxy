@@ -250,8 +250,7 @@ main()
 	done
 }
 
-# create temporary directory and lock file
-mkdir -p ${TMPDIR}
+# create temporary lock file
 touch "${TMPDIR}/${TMPNAME}.lock"
 
 # set command to be run on exit
