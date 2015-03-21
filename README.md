@@ -1,5 +1,5 @@
-ddwrt-adbp-to-privoxy
-=====================
+DD-WRT AdBlock Plus to Privoxy
+==============================
 
 Download and convert Adblock Plus Filters to Privoxy Action- and Filterfiles<br>
 for DD-WRT Builds above 25000 and Kong 's older Builds back to 23900 OLDD 
