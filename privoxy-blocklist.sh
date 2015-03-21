@@ -49,10 +49,10 @@
 #
 ######################################################################
 
-# privoxy config dir (default: /etc/privoxy/)
+# Privoxy config dir (default: /jffs/etc/privoxy/)
 CONFDIR=/jffs/etc/privoxy
 mkdir -p ${CONFDIR}
-# directory for temporary files
+# Directory for temporary files
 TMPDIR=/jffs/tmp/privoxy-blocklist
 TMPNAME=$(basename "${0}")
 mkdir -p ${TMPDIR}
@@ -73,14 +73,14 @@ https://easylist-downloads.adblockplus.org/malwaredomains_full.txt"
 
 usage()
 {
-	echo "${TMPNAME} is a script to convert AdBlockPlus-lists into Privoxy-lists and install them."
+	echo "${TMPNAME} is a script to convert AdBlock Plus lists into Privoxy-lists and install them."
 	echo " "
 	echo "Options:"
 	echo "      -h:    Show this help."
 	echo "      -q:    Don't give any output."
 	echo "      -v 1:  Enable verbosity 1. Show a little bit more output."
 	echo "      -v 2:  Enable verbosity 2. Show a lot more output."
-	echo "      -v 3:  Enable verbosity 3. Show all possible output and don't delete temporary files.(For debugging only!!)"
+	echo "      -v 3:  Enable verbosity 3. Show all possible output and don't delete temporary files. (For debugging only!!)"
 	echo "      -r:    Remove all lists build by this script."
 }
 
@@ -94,7 +94,7 @@ for dep in $'/usr/sbin/privoxy' ; do
 done
 
 # check whether an instance is already running
-[ -e "${TMPDIR}/${TMPNAME}.lock" ] && echo "An Instance of ${TMPNAME} is already running. Exit" && exit
+[ -e "${TMPDIR}/${TMPNAME}.lock" ] && echo "An instance of ${TMPNAME} is already running. Exit" && exit
 
 DBG=0
 
@@ -125,7 +125,7 @@ main()
 		debug ".. downloading done." 0
 		[ "$(grep -E '^\[Adblock.*\]$' "${file}")" == "" ] && echo "The list received from ${url} isn't an AdblockPlus list. Skipped" && continue
 	
-		# convert AdblockPlus list to Privoxy list
+		# convert Adblock Plus list to Privoxy list
 		# blacklist of urls
 		debug "Creating actionfile for ${list} ..." 1
 		echo -e "{ +block{${list}} }" > "${actionfile}"
