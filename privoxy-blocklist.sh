@@ -16,7 +16,7 @@
 #
 ######################################################################
 #
-#  Sumary: 
+#  Summary: 
 #  This script downloads, converts and installs
 #  AdblockPlus lists into Privoxy
 #
@@ -114,7 +114,7 @@ main()
 		#curl -k -o ${file} ${url} >${TMPDIR}/wget-${filename//\//#}.log 2>&1
 		#debug "$(cat ${TMPDIR}/wget-${filename//\//#}.log)" 2
 		debug ".. downloading done." 0
-		[ "$(grep -E '^\[Adblock.*\]$' "${file}")" == "" ] && echo "The list recieved from ${url} isn't an AdblockPlus list. Skipped" && continue
+		[ "$(grep -E '^\[Adblock.*\]$' "${file}")" == "" ] && echo "The list received from ${url} isn't an AdblockPlus list. Skipped" && continue
 	
 		# convert AdblockPlus list to Privoxy list
 		# blacklist of urls
@@ -269,7 +269,7 @@ do
 			rm -rf ${CONFDIR}/*.script.{action,filter} && \
 			sed '/^actionsfile .*\.script\.action$/d;/^filterfile .*\.script\.filter$/d' -i /tmp/privoxy.conf && \
 			echo "Lists removed." && exit 0
-			echo -e "An error occured while removing the lists.\nPlease have a look into ${CONFDIR} whether there are .script.* files and search for *.script.* in ${CONFDIR}/config."
+			echo -e "An error occurred while removing the lists.\nPlease have a look into ${CONFDIR} whether there are .script.* files and search for *.script.* in ${CONFDIR}/config."
 			exit 1
 			;;
 		":")
