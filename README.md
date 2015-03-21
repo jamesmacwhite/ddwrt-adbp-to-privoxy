@@ -31,7 +31,7 @@ Modified to be used without Optware or any additional binaries.
 
 * DD-WRT Build BS 25408+, Kong 23900+ or similar
 * Privoxy compiled into firmware (/usr/sbin/privoxy)
-* JFFS Partition - [http://www.dd-wrt.com/wiki/index.php/Journalling_Flash_File_System]
+* JFFS Partition - http://www.dd-wrt.com/wiki/index.php/Journalling_Flash_File_System
 
 ### Install Instructions:
 
