@@ -2,11 +2,14 @@
 #
 ######################################################################
 #
-#  privoxy-blocklist.sh @ VERSION 141512-1 
+#  privoxy-blocklist.sh @ VERSION 152103-1 
 #
 #  Modified for DD-WRT by: 
 #  Simon Sanladerer <simon-at-sanladerer.com>
 #  Tested on_ DD-WRT Build BS 25408+ and Kong 23900+
+#
+#  Additional modifications by:
+#  James White <james-at-jmwhite.co.uk>
 #
 #  Based on Original Script by:
 #
