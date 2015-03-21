@@ -51,6 +51,7 @@
 
 # privoxy config dir (default: /etc/privoxy/)
 CONFDIR=/jffs/etc/privoxy
+mkdir -p ${CONFDIR}
 # directory for temporary files
 TMPDIR=/jffs/tmp/privoxy-blocklist
 TMPNAME=$(basename "${0}")
