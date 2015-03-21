@@ -11,6 +11,12 @@ Modified to be used without Optware or any additional binaries.
 
 ### Changelog
 
+##### 152103-1
+
+* Adblock lists stored in variable making easier to modify
+* Corrected some grammar issues
+* Rewrote installation instructions
+
 ###### 151012-1
 
 * Moved to Github
