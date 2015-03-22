@@ -54,10 +54,11 @@
 
 # Privoxy config dir (default: /jffs/etc/privoxy/)
 CONFDIR=/jffs/etc/privoxy
-mkdir -p ${CONFDIR}
-# Directory for temporary files
+# Script tmp dir
 TMPDIR=/jffs/tmp/privoxy-blocklist
 TMPNAME=$(basename "${0}")
+# Create directory paths if they don't exist
+mkdir -p ${CONFDIR}
 mkdir -p ${TMPDIR}
 
 # URL of each AdBlock list to download and convert
