@@ -60,6 +60,8 @@ TMPNAME=$(basename "${0}")
 # Create directory paths if they don't exist
 mkdir -p ${CONFDIR}
 mkdir -p ${TMPDIR}
+# Debug mode, set to 1 to enable
+DBG=0
 
 # URL of each AdBlock list to download and convert
 # Each list must appear on a new line with a backslash denoting a new line
@@ -99,8 +101,6 @@ done
 
 # check whether an instance is already running
 [ -e "${TMPDIR}/${TMPNAME}.lock" ] && echo "An instance of ${TMPNAME} is already running. Exit" && exit
-
-DBG=0
 
 debug()
 {
