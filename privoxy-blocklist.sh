@@ -112,7 +112,7 @@ main()
 	cpoptions=""
 	[ ${DBG} -gt 0 ] && cpoptions="-v"
 
-	for url in $ADBLOCKLISTS
+	for url in {$ADBLOCKLISTS}
 	do
 		debug "Processing ${url} ...\n" 0
 		file="${TMPDIR}/$(basename ${url})"
