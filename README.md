@@ -60,9 +60,15 @@ Grab the latest version of `privoxy-blocklist.sh`, the easiest way to do this is
 
 2. `sh privoxy-blocklist.sh`
 
-3. Enable Privoxy in the DD-WRT web interface under `Services -> Adblocking` by setting the radio button to Enable. In addition you will need to enable `Custom Configuration`. For convenience you may also want to use `Transparent Mode`. This mode will create a iptables rule that redirects all traffic on port 80 through Privoxy. Doing this means you don't need to configure each client to point to the proxy via [x.x.x.x]:8118, all traffic will be redirected automatically.
+3. Enable Privoxy in the DD-WRT web interface under `Services -> Adblocking` by setting the radio button to Enable. In addition you will need to enable `Custom Configuration`. 
 
-4. Make sure `CONFDIR` is pointing to the place where you store your filterlists. - Default: `/jffs/etc/privoxy`
+  1. For convenience you may also want to use `Transparent Mode`. This mode will create a iptables rule that redirects all traffic on port 80 through Privoxy. Doing this means you don't need to configure each client to point to the proxy via [x.x.x.x]:8118, all traffic will be redirected automatically. Note this is port 80 traffic only. Connections via SSL will not be included in this scope.
+
+  2. Initially it be might a good idea to not enable transparent mode and perform tests in a browser with the proxy manually specified as any problems with Privoxy with transparent mode on will likely interrupt your internet connection for all clients.
+
+  3. For the best use of Privoxy configuring the HTTP proxy at the system level will provide the best functionality and will cover SSL connections as well. This however can be difficult with lots of clients unless you can force such settings through a group policy or something to that nature.
+
+4. Make sure `CONFDIR` is pointing to the place where you store your filters and action files. - Default: `/jffs/etc/privoxy`
 
 5. Add all Filter and Actionlists to your Custom Configuration like this
 (for each AdblockPlus-List one Filter- and one Actionlist will be generated):
