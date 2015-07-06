@@ -124,8 +124,6 @@ main()
 		# download list
 		debug "Downloading ${url} ..." 0
 		curl -s -k "${url}" > "${file}"
-		#curl -k -o ${file} ${url} >${TMPDIR}/wget-${filename//\//#}.log 2>&1
-		#debug "$(cat ${TMPDIR}/wget-${filename//\//#}.log)" 2
 		debug ".. downloading done." 0
 		[ "$(grep -E '^\[Adblock.*\]$' "${file}")" == "" ] && echo "The list received from ${url} isn't an AdblockPlus list. Skipped" && continue
 	
@@ -134,7 +132,6 @@ main()
 		debug "Creating actionfile for ${list} ..." 1
 		echo -e "{ +block{${list}} }" > "${actionfile}"
 		
-		#sed '/^!.*/d;1,1 d;/^@@.*/d;/\$.*/d;/#/d;s/\./\./g;s/\?/\\?/g;s/\*/.*/g;s/(/\\(/g;s/)/\\)/g;s/\[/\\[/g;s/\]/\\]/g;s/\^/[\/\&:\?=_]/g;s/^||/\./g;s/^|/^/g;s/|$/\$/g;/|/d' ${file} >> ${actionfile}
 		sed \
 			-e '/^!.*/d;' \
 			-e 's/^\|\|\(.*\)\^\(.*\)$/\.\1\2/g;' \
@@ -159,8 +156,6 @@ main()
 		debug "... creating filterfile for ${list} ..." 1
 		echo "FILTER: ${list} Tag filter of ${list}" > "${filterfile}"
 
-		# set filter for html elements
-		#sed '/^#/!d;s/^##//g;s/^#\(.*\)\[.*\]\[.*\]*/s|<([a-zA-Z0-9]+)\\s+.*id=.?\1.*>.*<\/\\1>||g/g;s/^#\(.*\)/s|<([a-zA-Z0-9]+)\\s+.*id=.?\1.*>.*<\/\\1>||g/g;s/^\.\(.*\)/s|<([a-zA-Z0-9]+)\\s+.*class=.?\1.*>.*<\/\\1>||g/g;s/^a\[\(.*\)\]/s|<a.*\1.*>.*<\/a>||g/g;s/^\([a-zA-Z0-9]*\)\.\(.*\)\[.*\]\[.*\]*/s|<\1.*class=.?\2.*>.*<\/\1>||g/g;s/^\([a-zA-Z0-9]*\)#\(.*\):.*[:[^:]]*[^:]*/s|<\1.*id=.?\2.*>.*<\/\1>||g/g;s/^\([a-zA-Z0-9]*\)#\(.*\)/s|<\1.*id=.?\2.*>.*<\/\1>||g/g;s/^\[\([a-zA-Z]*\).=\(.*\)\]/s|\1^=\2>||g/g;s/\^/[\/\&:\?=_]/g;s/\.\([a-zA-Z0-9]\)/\\.\1/g' ${file} >> ${filterfile}
 		sed \
 			-e '/^#/!d;' \
 			-e 's/^##//g;' \
@@ -180,52 +175,6 @@ main()
 		echo "*" >> "${actionfile}"
 		debug "... filterfile added ..." 1
 		debug "... creating and adding whitlist for urls ..." 1
-
-
-		# whitelist of urls
-		#echo "{ -block }" >> ${actionfile}
-		#sed \ 
-		# 	-e '/^@@.*/!d;' \
-		#	-e 's/^@@//g;' \
-		#	-e '/\$.*/d;' \
-		#	-e '/#/d; '\
-		#	-e 's/\?/\\?/g;' \
-		#	-e 's/\*/.*/g;' \
-		#	-e 's/(/\\(/g;' \
-		#	-e 's/)/\\)/g;' \
-		#	-e 's/\[/\\[/g;' \
-		#	-e 's/\]/\\]/g;' \
-		#	-e 's/\^/[\/\&:\?=_]/g;' \
-		#	-e 's/^||/\./g;' \
-		#	-e 's/^|/^/g;' \
-		#	-e 's/|$/\$/g;' \
-		#	-e '/|/d' \
-		#"${file}" >> "${actionfile}"
-		#debug "... created and added whitelist - creating and adding image handler ..." 1
-		
-
-		# whitelist of image urls
-		#echo "{ -block +handle-as-image }" >> ${actionfile}
-		#sed \
-		#	-e '/^@@.*/!d;' \
-		#	-e 's/^@@//g'; \
-		#	-e '/\$.*image.*/!d;' \
-		#	-e 's/\$.*image.*//g;' \
-		#	-e '/#/d;' \
-		#	-e 's/\?/\\?/g;' \
-		#	-e 's/\*/.*/g;' \
-		#	-e 's/(/\\(/g;' \
-		#	-e 's/)/\\)/g;' \
-		#	-e 's/\[/\\[/g;' \
-		#	-e 's/\]/\\]/g;' \
-		#	-e 's/\^/[\/\&:\?=_]/g;' \
-		#	-e 's/^||/\./g;' \
-		#	-e 's/^|/^/g;' \
-		#	-e 's/|$/\$/g;' \
-		#	-e '/|/d' \
-		#"${file}" >> "${actionfile}"
-		#debug "... created and added image handler ..." 1
-		#debug "... created actionfile for ${list}." 1
 	
 		# install Privoxy actionsfile
 		cp ${cpoptions} "${actionfile}" "${CONFDIR}"
