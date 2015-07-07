@@ -61,9 +61,9 @@ else
 fi
 
 # Check if the specified ROOTDIR is actually mounted and available
-MOUNTCHECK=$(mount | grep " on ${ROOTDIR} " | wc -l)
+MOUNTCHECK=$(mount | grep -c " on ${ROOTDIR} ")
 
-if [ ${MOUNTCHECK} -eq 0 ] ; then
+if [ "${MOUNTCHECK}" -eq 0 ] ; then
 	echo "${ROOTDIR} is not mounted. Please confirm the partition is mounted before continuing"
 	exit 1
 fi
