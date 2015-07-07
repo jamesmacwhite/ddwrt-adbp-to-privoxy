@@ -124,7 +124,7 @@ main()
 	for url in ${ADBLOCKLISTS}
 	do
 		debug "Processing ${url} ...\n" 0
-		file="${TMPDIR}/$(basename ${url})"
+		file="${TMPDIR}/$(basename "${url}")"
 		filename=$(basename "${url}")
 		actionfile=${file%\.*}.script.action
 		filterfile=${file%\.*}.script.filter
