@@ -103,7 +103,7 @@ DEPENDENCIES="curl grep privoxy sed"
 for COMMAND in ${DEPENDENCIES}
 do
 	type -p "${COMMAND}" &>/dev/null && continue || {
-		echo "The following dependency is missing: (${COMMAND}).";
+		echo "The following dependency is missing: (${COMMAND})."
 		exit 1
 	}
 done
