@@ -52,15 +52,23 @@
 #
 ######################################################################
 
-# Privoxy config dir (default: /jffs/etc/privoxy/)
-
+# If you want to store the custom files on /opt, set this to 1
 OPTWARE=0
-if [ $OPTWARE -eq 1 ] ; then
+if [ ${OPTWARE} -eq 1 ] ; then
 	ROOTDIR="/opt"
 else
-	ROOTDIR="/jffs"	
+	ROOTDIR="/jffs"
 fi
 
+# Check if the specified ROOTDIR is actually mounted and available
+MOUNTCHECK=$(mount | grep " on ${ROOTDIR} " | wc -l)
+
+if [ ${MOUNTCHECK} -eq 0 ] ; then
+	echo "${ROOTDIR} is not mounted. Please confirm the partition is mounted before continuing"
+	exit 1
+fi
+
+# Privoxy config dir (default: /jffs/etc/privoxy/)
 CONFDIR="${ROOTDIR}/etc/privoxy"
 # Script tmp dir
 TMPDIR="${ROOTDIR}/tmp/privoxy-blocklist"
