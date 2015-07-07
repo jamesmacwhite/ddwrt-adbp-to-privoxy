@@ -99,12 +99,13 @@ usage()
 }
 
 # check for dependencies
-for dep in $'/usr/sbin/privoxy' ; do
-  if ! [ -e ${dep} ]
-  then
-    echo "The command ${dep} can't be found. Please install the package providing ${dep} and run $0 again. Exit" >&2
-    exit 1
-  fi
+DEPENDENCIES="curl grep privoxy sed"
+for COMMAND in ${DEPENDENCIES}
+do
+	type -p "${COMMAND}" &>/dev/null && continue || {
+		echo "The following dependency is missing: (${COMMAND}).";
+		exit 1
+	}
 done
 
 # check whether an instance is already running
