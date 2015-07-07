@@ -53,9 +53,17 @@
 ######################################################################
 
 # Privoxy config dir (default: /jffs/etc/privoxy/)
-CONFDIR=/jffs/etc/privoxy
+
+OPTWARE=0
+if [ $OPTWARE -eq 1 ] ; then
+	ROOTDIR="/opt"
+else
+	ROOTDIR="/jffs"	
+fi
+
+CONFDIR="${ROOTDIR}/etc/privoxy"
 # Script tmp dir
-TMPDIR=/jffs/tmp/privoxy-blocklist
+TMPDIR="${ROOTDIR}/tmp/privoxy-blocklist"
 TMPNAME=$(basename "${0}")
 # Create directory paths if they don't exist
 mkdir -p ${CONFDIR}
