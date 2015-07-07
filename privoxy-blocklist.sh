@@ -133,7 +133,6 @@ main()
 	do
 		debug "Processing ${url} ...\n" 0
 		file="${TMPDIR}/$(basename "${url}")"
-		filename=$(basename "${url}")
 		actionfile=${file%\.*}.script.action
 		filterfile=${file%\.*}.script.filter
 		list=$(basename "${file%\.*}")
