@@ -52,6 +52,13 @@
 #
 ######################################################################
 
+# URL of each AdBlock list to download and convert
+# Each list must appear on a new line with a backslash denoting a new line
+# You can find AdBlock lists at: https://adblockplus.org/en/subscriptions
+ADBLOCKLISTS=" \
+https://easylist-downloads.adblockplus.org/easylist.txt \
+https://easylist-downloads.adblockplus.org/antiadblockfilters.txt"
+
 # If you want to store the custom files on /opt, set this to 1
 OPTWARE=0
 if [ ${OPTWARE} -eq 1 ] ; then
@@ -78,14 +85,6 @@ mkdir -p ${CONFDIR}
 mkdir -p ${TMPDIR}
 # Debug mode, set to 1 to enable
 DBG=0
-
-# URL of each AdBlock list to download and convert
-# Each list must appear on a new line with a backslash denoting a new line
-# You can find AdBlock lists at: https://adblockplus.org/en/subscriptions
-ADBLOCKLISTS=" \
-https://easylist-downloads.adblockplus.org/easylist.txt \
-https://easylist-downloads.adblockplus.org/antiadblockfilters.txt \
-https://easylist-downloads.adblockplus.org/malwaredomains_full.txt"
 
 ######################################################################
 #
