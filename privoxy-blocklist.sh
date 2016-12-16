@@ -146,7 +146,7 @@ main()
 		# blacklist of urls
 		debug "Creating actionfile for ${list} ..." 1
 		echo -e "{ +block{${list}} }" > "${actionfile}"
-		sed '/^!.*/d;1,1 d;/^@@.*/d;/\$.*/d;/#/d;s/\./\\./g;s/\?/\\?/g;s/\*/.*/g;s/(/\\(/g;s/)/\\)/g;s/\[/\\[/g;s/\]/\\]/g;s/\^/[\/\&:\?=_]/g;s/^||/\./g;s/^|/^/g;s/|$/\$/g;/|/d' ${file} >> ${actionfile}
+		sed '/^!.*/d;1,1 d;/^@@.*/d;/\$.*/d;/#/d;s/\./\\./g;s|?|\\?|g;s/\*/.*/g;s/(/\\(/g;s/)/\\)/g;s/\[/\\[/g;s/\]/\\]/g;s/\^/[\/\&:\?=_]/g;s/^||/\./g;s/^|/^/g;s/|$/\$/g;/|/d' ${file} >> ${actionfile}
 
 		debug "... creating filterfile for ${list} ..." 1
 		echo "FILTER: ${list} Tag filter of ${list}" > "${filterfile}"
